@@ -37,8 +37,8 @@ export const StyledRoundButton = styled.button`
   font-weight: bold;
   font-size: 15px;
   color: var(--primary-text);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -57,18 +57,23 @@ export const ResponsiveWrapper = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
-  justify-content: stretched;
-  align-items: stretched;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  withdt: 300px;
+  opacity: 0.9;
   @media (min-width: 767px) {
-    flex-direction: row;
+    flex-direction: column;
+    width: 600px;
+    opacity: 0.9;
+    
   }
 `;
 
 export const StyledLogo = styled.img`
-  width: 200px;
+  width: 320px;
   @media (min-width: 767px) {
-    width: 300px;
+    width: 767px;
+    
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -76,15 +81,20 @@ export const StyledLogo = styled.img`
 
 export const StyledImg = styled.img`
   box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
-  border: 4px dashed var(--secondary);
+  border: 4px var(--secondary);
   background-color: var(--accent);
-  border-radius: 100%;
-  width: 200px;
+  border-radius: 10%;
+  flex: 1;
+  Flex-direction: center;
+  width: 150px;
+  Flex-direction: column;
+ 
+  
   @media (min-width: 900px) {
-    width: 250px;
+    width: 20%;
   }
   @media (min-width: 1000px) {
-    width: 300px;
+    width: 30%;
   }
   transition: width 0.5s;
 `;
@@ -100,7 +110,7 @@ function App() {
   const data = useSelector((state) => state.data);
   const [claimingNft, setClaimingNft] = useState(false);
   const [feedback, setFeedback] = useState(`Click buy to mint your NFT.`);
-  const [mintAmount, setMintAmount] = useState(1);
+  const [_mintAmount, setMintAmount] = useState(1);
   const [CONFIG, SET_CONFIG] = useState({
     CONTRACT_ADDRESS: "",
     SCAN_LINK: "",
@@ -123,14 +133,14 @@ function App() {
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
-    let totalCostWei = String(cost * mintAmount);
-    let totalGasLimit = String(gasLimit * mintAmount);
+    let totalCostWei = String(cost * _mintAmount);
+    let totalGasLimit = String(gasLimit * _mintAmount);
     console.log("Cost: ", totalCostWei);
     console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
-      .mint(mintAmount)
+     .mint(_mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
@@ -153,7 +163,7 @@ function App() {
   };
 
   const decrementMintAmount = () => {
-    let newMintAmount = mintAmount - 1;
+    let newMintAmount = _mintAmount - 1;
     if (newMintAmount < 1) {
       newMintAmount = 1;
     }
@@ -161,9 +171,9 @@ function App() {
   };
 
   const incrementMintAmount = () => {
-    let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 10) {
-      newMintAmount = 10;
+    let newMintAmount = _mintAmount + 1;
+    if (newMintAmount > 15) {
+      newMintAmount = 15;
     }
     setMintAmount(newMintAmount);
   };
@@ -203,6 +213,7 @@ function App() {
       >
         <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         <s.SpacerSmall />
+        
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
           <s.Container flex={1} jc={"center"} ai={"center"}>
             <StyledImg alt={"example"} src={"/config/images/example.gif"} />
@@ -216,7 +227,7 @@ function App() {
               backgroundColor: "var(--accent)",
               padding: 24,
               borderRadius: 24,
-              border: "4px dashed var(--secondary)",
+              border: "4px var(--secondary)",
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
             }}
           >
@@ -337,7 +348,7 @@ function App() {
                           color: "var(--accent-text)",
                         }}
                       >
-                        {mintAmount}
+                        {_mintAmount}
                       </s.TextDescription>
                       <s.SpacerMedium />
                       <StyledRoundButton
@@ -370,16 +381,10 @@ function App() {
             <s.SpacerMedium />
           </s.Container>
           <s.SpacerLarge />
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg
-              alt={"example"}
-              src={"/config/images/example.gif"}
-              style={{ transform: "scaleX(-1)" }}
-            />
-          </s.Container>
+        
         </ResponsiveWrapper>
         <s.SpacerMedium />
-        <s.Container jc={"center"} ai={"center"} style={{ width: "70%" }}>
+        <s.Container jc={"center"} ai={"center"} style={{ width: "50%" }}>
           <s.TextDescription
             style={{
               textAlign: "center",

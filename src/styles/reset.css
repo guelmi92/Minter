@@ -125,7 +125,7 @@ table {
 
 @font-face {
   font-family: "coder";
-  src: local("coder"), url(font.woff) format("woff");
+  src: local("coder"), url(bangers-v13-latin-regular.woff) format("woff");
 }
 
 body {
