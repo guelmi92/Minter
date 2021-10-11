@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Fat Heroes minting dapp is a quick and easy way to connect your smart contract and start minting NFTs.",
   "private": true,
+  "homepage":"https://guelmi92.github.com/Mint",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -18,6 +19,8 @@
   "author": "Me",
   "license": "MIT",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
