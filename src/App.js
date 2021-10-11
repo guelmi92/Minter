@@ -70,10 +70,9 @@ export const ResponsiveWrapper = styled.div`
 `;
 
 export const StyledLogo = styled.img`
-  width: 320px;
+  width: 300px;
   @media (min-width: 767px) {
-    width: 767px;
-    
+    width: 700px;
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -86,12 +85,12 @@ export const StyledImg = styled.img`
   border-radius: 10%;
   flex: 1;
   Flex-direction: center;
-  width: 150px;
+  width: 200px;
   Flex-direction: column;
  
   
   @media (min-width: 900px) {
-    width: 20%;
+    width: 30%;
   }
   @media (min-width: 1000px) {
     width: 30%;
@@ -172,8 +171,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = _mintAmount + 1;
-    if (newMintAmount > 15) {
-      newMintAmount = 15;
+    if (newMintAmount > 35) {
+      newMintAmount = 35;
     }
     setMintAmount(newMintAmount);
   };
@@ -213,6 +212,32 @@ function App() {
       >
         <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
         <s.SpacerSmall />
+
+        <div>
+<a href="https://twitter.com/acemazinger" target="_blank">
+<img title="Twitter" alt="Twitter" src="/config/images/Twitter_Blue.png" width="50" height="50" />
+</a>
+<a href="https://testnets.opensea.io/collection/pol-fat-guys" target="_blank">
+<img title="Opensea" alt="Opensea" src="/config/images/Opensea_Blue.png" width="50" height="50" />
+</a>
+ 
+      </div>
+<s.SpacerSmall />
+        <s.TextSubTitle
+                  style={{ textAlign: "center",
+                  fontSize: 20,
+                  //fontWeight: "bold", 
+                  color: "var(--accent-text)" }}
+                >
+                  DogeInu Punks is a Pixel Art Collection inspired by the popular Crypto Punks.
+        </s.TextSubTitle>
+                <s.SpacerXSmall/>
+        <s.TextDescription
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  We are not affiliated with Larva Labs.
+          </s.TextDescription>
+                <s.SpacerSmall />
         
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
           <s.Container flex={1} jc={"center"} ai={"center"}>
@@ -283,6 +308,7 @@ function App() {
                 >
                   Excluding gas fees.
                 </s.TextDescription>
+              
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (

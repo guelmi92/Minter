@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0x8ab912a5BbB9006bcDc7AD1C6E0833910D633621",
-  "SCAN_LINK": "https://mumbai.polygonscan.com/address/0x8ab912a5bbb9006bcdc7ad1c6e0833910d633621",
+  "CONTRACT_ADDRESS": "0x632923899B00446D3af6C3e2048983BB8D6f37F2",
+  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x632923899B00446D3af6C3e2048983BB8D6f37F2",
   "NETWORK": {
-    "NAME": "Polygon Testnet",
-    "SYMBOL": "Matic",
-    "ID": 80001
+    "NAME": "Red de prueba Rinkeby",
+    "SYMBOL": "ETH",
+    "ID": 4
   },
-  "NFT_NAME": "Pol_Fat_Guys",
-  "SYMBOL": "PFG",
-  "MAX_SUPPLY": 10000,
+  "NFT_NAME": "ETH_Fat_Guys",
+  "SYMBOL": "ETF",
+  "MAX_SUPPLY": 111,
   "WEI_COST": 50000000000000000,
   "DISPLAY_COST": 0.05,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opensea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/pol-fat-guys",
+  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/eth-fat-guys",
   "SHOW_BACKGROUND": true
 }
