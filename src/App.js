@@ -255,9 +255,9 @@ function App() {
         flex={1}
         ai={"center"}
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
-        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
+        image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.webp" : null}
       >
-        <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
+        <StyledLogo alt={"logo"} src={"/config/images/logo.webp"} />
         
         
         <s.SpacerSmall />
@@ -271,10 +271,10 @@ function App() {
 
         <div>
 <a href="https://twitter.com/PunksInu" target="_blank">
-<img title="Twitter" alt="Twitter" src="/config/images/Twitter_blue.png" width="50" height="50" />
+<img title="Twitter" alt="Twitter" src="/config/images/Twitter_blue.webp" width="50" height="50" />
 </a>
 <a href="https://opensea.io/collection/dogeinupunks" target="_blank">
-<img title="Opensea" alt="Opensea" src="/config/images/Opensea_Blue.png" width="50" height="50" />
+<img title="Opensea" alt="Opensea" src="/config/images/Opensea_Blue.webp" width="50" height="50" />
 </a>
  
       </div>
@@ -669,7 +669,7 @@ function App() {
           <s.SpacerMedium/>
 
         <s.Container flex={1} jc={"left"} ai={"left"}>
-            <StyledImg1 alt={"example"} src={"/config/images/Me.png"} />
+            <StyledImg1 alt={"example"} src={"/config/images/Me.webp"} />
             <s.TextSubTitle
                   style={{ textAlign: "left", color: "var(--secondary-text)" }}
                 >
