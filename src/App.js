@@ -270,10 +270,10 @@ function App() {
 
 
         <div>
-<a href="https://twitter.com/PunksInu" target="_blank">
+<a href="https://twitter.com/PunksInu" rel="noreferrer" target="_blank">
 <img title="Twitter" alt="Twitter" src="/config/images/Twitter_blue.webp" width="50" height="50" />
 </a>
-<a href="https://opensea.io/collection/dogeinupunks" target="_blank">
+<a href="https://opensea.io/collection/dogeinupunks" rel="noreferrer" target="_blank">
 <img title="Opensea" alt="Opensea" src="/config/images/Opensea_Blue.webp" width="50" height="50" />
 </a>
  
@@ -357,7 +357,7 @@ function App() {
                 color: "var(--primary-text)",
               }}
             >
-              <StyledLink target={"_blank"} href={CONFIG.SCAN_LINK}>
+              <StyledLink rel={"noreferrer"} target={"_blank"} href={CONFIG.SCAN_LINK}>
                 {truncate(CONFIG.CONTRACT_ADDRESS, 15)}
               </StyledLink>
             </s.TextDescription>
