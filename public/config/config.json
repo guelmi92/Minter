@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0x632923899B00446D3af6C3e2048983BB8D6f37F2",
-  "SCAN_LINK": "https://rinkeby.etherscan.io/address/0x632923899B00446D3af6C3e2048983BB8D6f37F2",
+  "CONTRACT_ADDRESS": "0xEA32a7c808E70a5017D8613CCE63ed4A6cdE8f54",
+  "SCAN_LINK": "https://etherscan.io/address/0xea32a7c808e70a5017d8613cce63ed4a6cde8f54",
   "NETWORK": {
-    "NAME": "Red de prueba Rinkeby",
+    "NAME": "Ethereum",
     "SYMBOL": "ETH",
-    "ID": 4
+    "ID": 1
   },
-  "NFT_NAME": "ETH_Fat_Guys",
-  "SYMBOL": "ETF",
-  "MAX_SUPPLY": 111,
+  "NFT_NAME": "DogeInuPunks",
+  "SYMBOL": "DogeInu Punk",
+  "MAX_SUPPLY": 10000,
   "WEI_COST": 50000000000000000,
   "DISPLAY_COST": 0.05,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opensea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/eth-fat-guys",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/dogeinupunks",
   "SHOW_BACKGROUND": true
 }

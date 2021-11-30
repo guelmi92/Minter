@@ -16,7 +16,7 @@ export const StyledButton = styled.button`
   padding: 10px;
   font-weight: bold;
   color: var(--secondary-text);
-  width: 100px;
+  width: 200px;
   cursor: pointer;
   box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
   -webkit-box-shadow: 0px 6px 0px -2px rgba(250, 250, 250, 0.3);
@@ -30,7 +30,7 @@ export const StyledButton = styled.button`
 
 export const StyledRoundButton = styled.button`
   padding: 10px;
-  border-radius: 100%;
+  border-radius: 0%;
   border: none;
   background-color: var(--primary);
   padding: 10px;
@@ -63,7 +63,7 @@ export const ResponsiveWrapper = styled.div`
   opacity: 0.9;
   @media (min-width: 767px) {
     flex-direction: column;
-    width: 600px;
+    width: 500px;
     opacity: 0.9;
     
   }
@@ -72,7 +72,7 @@ export const ResponsiveWrapper = styled.div`
 export const StyledLogo = styled.img`
   width: 300px;
   @media (min-width: 767px) {
-    width: 700px;
+    width: 800px;
   }
   transition: width 0.5s;
   transition: height 0.5s;
@@ -85,23 +85,67 @@ export const StyledImg = styled.img`
   border-radius: 10%;
   flex: 1;
   Flex-direction: center;
-  width: 200px;
+  width: 150px;
   Flex-direction: column;
  
   
   @media (min-width: 900px) {
-    width: 30%;
+    width: 10%;
+    
   }
   @media (min-width: 1000px) {
-    width: 30%;
+    width: 10%;
+    
   }
   transition: width 0.5s;
+`;
+
+export const StyledImg1 = styled.img`
+  box-shadow: 0px 5px 11px 2px rgba(0, 0, 0, 0.7);
+  border: 4px var(--secondary);
+  background-color: var(--accent);
+  border-radius: 100%;
+  flex: 1;
+  Flex-direction: left;
+  width: 150px;
+  Flex-direction: column;
+ 
+  
+  @media (min-width: 900px) {
+    width: 15%;
+    
+  }
+  @media (min-width: 1000px) {
+    width: 15%;
+    
+  }
+  transition: width 0.5s;
+`;
+
+
+export const ResponsiveWrapper1 = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  withdt: 300px;
+  opacity: 0.9;
+  @media (min-width: 767px) {
+    flex-direction: column;
+    width: 700px;
+    opacity: 0.9;
+    
+  }
 `;
 
 export const StyledLink = styled.a`
   color: var(--secondary);
   text-decoration: none;
 `;
+
+
+  
 
 function App() {
   const dispatch = useDispatch();
@@ -121,9 +165,10 @@ function App() {
     NFT_NAME: "",
     SYMBOL: "",
     MAX_SUPPLY: 1,
+    TOKEN_COUNT: 1,
     WEI_COST: 0,
     DISPLAY_COST: 0,
-    GAS_LIMIT: 0,
+    //GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
@@ -131,17 +176,19 @@ function App() {
 
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
-    let gasLimit = CONFIG.GAS_LIMIT;
+    //let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * _mintAmount);
-    let totalGasLimit = String(gasLimit * _mintAmount);
+    //let totalGasLimit = String(gasLimit * _mintAmount);
     console.log("Cost: ", totalCostWei);
-    console.log("Gas limit: ", totalGasLimit);
+    //console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
      .mint(_mintAmount)
       .send({
-        gasLimit: String(totalGasLimit),
+        maxPriorityFeePerGas: null,
+        maxFeePerGas: null,
+        //gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
@@ -171,8 +218,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = _mintAmount + 1;
-    if (newMintAmount > 35) {
-      newMintAmount = 35;
+    if (newMintAmount > 15) {
+      newMintAmount = 15;
     }
     setMintAmount(newMintAmount);
   };
@@ -196,7 +243,7 @@ function App() {
 
   useEffect(() => {
     getConfig();
-  });
+  },[]);
 
   useEffect(() => {
     getData();
@@ -211,39 +258,77 @@ function App() {
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
         <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
+        
+        
         <s.SpacerSmall />
 
+        <s.Container flex={1} jc={"center"} ai={"center"}>
+            <StyledImg alt={"example"} src={"/config/images/ex.gif"} />
+          </s.Container>
+
+          <s.SpacerSmall />
+
+
         <div>
-<a href="https://twitter.com/acemazinger" target="_blank">
-<img title="Twitter" alt="Twitter" src="/config/images/Twitter_Blue.png" width="50" height="50" />
+<a href="https://twitter.com/PunksInu" target="_blank">
+<img title="Twitter" alt="Twitter" src="/config/images/Twitter_blue.png" width="50" height="50" />
 </a>
-<a href="https://testnets.opensea.io/collection/pol-fat-guys" target="_blank">
+<a href="https://opensea.io/collection/dogeinupunks" target="_blank">
 <img title="Opensea" alt="Opensea" src="/config/images/Opensea_Blue.png" width="50" height="50" />
 </a>
  
       </div>
-<s.SpacerSmall />
+
+      <s.SpacerSmall />
+      
+
+      <s.Container flex={1} jc={"center"} ai={"center"}>
+      <s.TextSubTitle
+                  style={{ textAlign: "center",
+                  fontSize: 20,
+                  //fontWeight: "bold", 
+                  color: "var(--test-color1)" }}
+                >
+                  DogeInu Punks is a 10000 NFT Collection living on the Ethereum blockchain 
+        </s.TextSubTitle>
+                
+                <s.TextSubTitle
+                  style={{ textAlign: "center",
+                  fontSize: 20,
+                  //fontWeight: "bold", 
+                  color: "var(--test-color1)" }}
+                >
+                  Each dogeInu Punk NFT has been generated in 28x28 pixels and enlarged to 500x500  
+        </s.TextSubTitle>
         <s.TextSubTitle
                   style={{ textAlign: "center",
                   fontSize: 20,
                   //fontWeight: "bold", 
-                  color: "var(--accent-text)" }}
+                  color: "var(--test-color1)" }}
+                  >
+                  with a Polaroid frame to make it look more cute and fun.
+                  </s.TextSubTitle>
+                
+      <s.TextSubTitle
+                  style={{ textAlign: "center",
+                  fontSize: 20,
+                  //fontWeight: "bold", 
+                  color: "var(--test-color2)" }}
                 >
-                  DogeInu Punks is a Pixel Art Collection inspired by the popular Crypto Punks.
+                  The Collection is inspired by the popular Crypto Punks.
         </s.TextSubTitle>
                 <s.SpacerXSmall/>
-        <s.TextDescription
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                <s.TextSubTitle
+                  style={{ textAlign: "center", fontSize: 20, color: "var(--test-color3)" }}
                 >
-                  We are not affiliated with Larva Labs.
-          </s.TextDescription>
+                  We are not affiliated with Larva Labs. 
+                  </s.TextSubTitle>
                 <s.SpacerSmall />
+                </s.Container>
+        <s.SpacerSmall />
         
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
-          <s.Container flex={1} jc={"center"} ai={"center"}>
-            <StyledImg alt={"example"} src={"/config/images/example.gif"} />
-          </s.Container>
-          <s.SpacerLarge />
+        <s.SpacerLarge />
           <s.Container
             flex={2}
             jc={"center"}
@@ -264,7 +349,7 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data.totalSupply} / {CONFIG.MAX_SUPPLY}
+              {data.tokenCount} / {CONFIG.MAX_SUPPLY}
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -277,7 +362,7 @@ function App() {
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
-            {Number(data.totalSupply) >= CONFIG.MAX_SUPPLY ? (
+            {Number(data.tokenCount) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -308,7 +393,6 @@ function App() {
                 >
                   Excluding gas fees.
                 </s.TextDescription>
-              
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
@@ -329,7 +413,7 @@ function App() {
                         getData();
                       }}
                     >
-                      CONNECT
+                      Connect to Metamask
                     </StyledButton>
                     {blockchain.errorMsg !== "" ? (
                       <>
@@ -409,29 +493,189 @@ function App() {
           <s.SpacerLarge />
         
         </ResponsiveWrapper>
+        <s.SpacerSmall />
+
+
+        <ResponsiveWrapper1 flex={1} style={{ padding: 24 }} test>
+        <s.SpacerLarge />
+          <s.Container
+            flex={2}
+            jc={"center"}
+            ai={"center"}
+            style={{
+              backgroundColor: "var(--accent)",
+              padding: 24,
+              borderRadius: 24,
+              border: "4px var(--secondary)",
+              boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
+            }}
+          >
+            <s.TextTitle
+              style={{
+                textAlign: "center",
+                fontSize: 50,
+                fontWeight: "bold",
+                color: "var(--accent-text)",
+              }}
+            >
+              FAQ
+            </s.TextTitle>
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 30,
+                color: "var(--test-color1)",
+              }}
+            >
+              * PUBLIC MINT DATE ?
+              
+            </s.TextSubTitle>
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 25,
+                color: "var(--test-color2)",
+              }}
+            >
+              Live now
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 30,
+                color: "var(--test-color1)",
+              }}
+            >
+              * HOW MANY DOGEINUPUNKS IN TOTAL ?
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 25,
+                color: "var(--test-color2)",
+              }}
+            >
+              10,000 NFTs
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 30,
+                color: "var(--test-color1)",
+              }}
+            >
+              * MINT PRICE ?
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 25,
+                color: "var(--test-color2)",
+              }}
+            >
+              0.05 ETH
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 30,
+                color: "var(--test-color1)",
+              }}
+            >
+              * BLOCKCHAIN ?
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 25,
+                color: "var(--test-color2)",
+              }}
+            >
+              Ethereum
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 30,
+                color: "var(--test-color1)",
+              }}
+            >
+              * HOW TO MINT ?
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+
+            <s.TextSubTitle
+              style={{
+                textAlign: "center",
+                fontSize: 25,
+                color: "var(--test-color2)",
+              }}
+            >
+              Through this web page or directly by smartcontract
+              
+            </s.TextSubTitle>
+            <s.SpacerSmall />
+          
+            <s.SpacerMedium />
+          </s.Container>
+          <s.SpacerLarge />
+        
+        </ResponsiveWrapper1>
+
+                  
+          
         <s.SpacerMedium />
         <s.Container jc={"center"} ai={"center"} style={{ width: "50%" }}>
-          <s.TextDescription
+          <s.TextSubTitle
             style={{
               textAlign: "center",
-              color: "var(--primary-text)",
+              color: "var(--test-color2)",
             }}
           >
             Please make sure you are connected to the right network (
             {CONFIG.NETWORK.NAME} Mainnet) and the correct address. Please note:
             Once you make the purchase, you cannot undo this action.
-          </s.TextDescription>
+          </s.TextSubTitle>
           <s.SpacerSmall />
-          <s.TextDescription
+          <s.TextSubTitle
             style={{
               textAlign: "center",
-              color: "var(--primary-text)",
+              color: "var(--test-color1)",
             }}
           >
-            We have set the gas limit to {CONFIG.GAS_LIMIT} for the contract to
+            Set the correct gas limit from Metamask to
             successfully mint your NFT. We recommend that you don't lower the
             gas limit.
-          </s.TextDescription>
+          </s.TextSubTitle>
+
+          <s.SpacerMedium/>
+
+        <s.Container flex={1} jc={"left"} ai={"left"}>
+            <StyledImg1 alt={"example"} src={"/config/images/Me.png"} />
+            <s.TextSubTitle
+                  style={{ textAlign: "left", color: "var(--secondary-text)" }}
+                >
+                  DogIx0 - Creator and NFT Enthusiast
+                </s.TextSubTitle> 
+          </s.Container>
         </s.Container>
       </s.Container>
     </s.Screen>

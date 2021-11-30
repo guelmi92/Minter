@@ -1,9 +1,8 @@
 {
-  "name": "Fat_Heroes_nft_minting_dapp",
+  "name": "DogeInuPunks_minting_dapp",
   "version": "1.0.0",
-  "description": "Fat Heroes minting dapp is a quick and easy way to connect your smart contract and start minting NFTs.",
+  "description": "DogeInuPunks minting dapp is a quick and easy way to connect your smart contract and start minting NFTs.",
   "private": true,
-  "homepage":"https://guelmi92.github.com/Mint",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -16,13 +15,14 @@
     "web3": "^1.5.1",
     "web3-eth-contract": "^1.5.2"
   },
-  "author": "Me",
-  "license": "MIT",
+  "homepage": "http://guelmi92.github.io/Minter",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy":"gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
