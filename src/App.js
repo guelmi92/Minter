@@ -264,6 +264,7 @@ function App() {
 
         <s.Container flex={1} jc={"center"} ai={"center"}>
             <StyledImg alt={"example"} src={"/config/images/ex.gif"} />
+            
           </s.Container>
 
           <s.SpacerSmall />
@@ -349,7 +350,8 @@ function App() {
                 color: "var(--accent-text)",
               }}
             >
-              {data.tokenCount} / {CONFIG.MAX_SUPPLY}
+              {blockchain.account === "" ||
+                blockchain.smartContract === null ? "" : `${data.tokenCount} / ${CONFIG.MAX_SUPPLY}` }
             </s.TextTitle>
             <s.TextDescription
               style={{
@@ -362,7 +364,8 @@ function App() {
               </StyledLink>
             </s.TextDescription>
             <s.SpacerSmall />
-            {Number(data.tokenCount) >= CONFIG.MAX_SUPPLY ? (
+            
+              {Number(data.tokenCount) >= CONFIG.MAX_SUPPLY ? (
               <>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -503,7 +506,7 @@ function App() {
             jc={"center"}
             ai={"center"}
             style={{
-              backgroundColor: "var(--accent)",
+              backgroundColor: "var(--test-color4)",
               padding: 24,
               borderRadius: 24,
               border: "4px var(--secondary)",
@@ -534,7 +537,7 @@ function App() {
               style={{
                 textAlign: "center",
                 fontSize: 25,
-                color: "var(--test-color2)",
+                color: "var(--test-color3)",
               }}
             >
               Live now
@@ -556,7 +559,7 @@ function App() {
               style={{
                 textAlign: "center",
                 fontSize: 25,
-                color: "var(--test-color2)",
+                color: "var(--test-color3)",
               }}
             >
               10,000 NFTs
@@ -579,7 +582,7 @@ function App() {
               style={{
                 textAlign: "center",
                 fontSize: 25,
-                color: "var(--test-color2)",
+                color: "var(--test-color3)",
               }}
             >
               0.05 ETH
@@ -602,7 +605,7 @@ function App() {
               style={{
                 textAlign: "center",
                 fontSize: 25,
-                color: "var(--test-color2)",
+                color: "var(--test-color3)",
               }}
             >
               Ethereum
@@ -626,7 +629,7 @@ function App() {
               style={{
                 textAlign: "center",
                 fontSize: 25,
-                color: "var(--test-color2)",
+                color: "var(--test-color3)",
               }}
             >
               Through this web page or directly by smartcontract
