@@ -299,7 +299,7 @@ function App() {
                   //fontWeight: "bold", 
                   color: "var(--test-color1)" }}
                 >
-                  Each dogeInu Punk NFT has been generated in 28x28 pixels and enlarged to 500x500  
+                  Each dogeInu Punk NFT has been generated in 32x32 pixels and enlarged
         </s.TextSubTitle>
         <s.TextSubTitle
                   style={{ textAlign: "center",
