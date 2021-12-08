@@ -168,7 +168,7 @@ function App() {
     TOKEN_COUNT: 1,
     WEI_COST: 0,
     DISPLAY_COST: 0,
-    //GAS_LIMIT: 0,
+    GAS_LIMIT: 0,
     MARKETPLACE: "",
     MARKETPLACE_LINK: "",
     SHOW_BACKGROUND: false,
@@ -176,11 +176,11 @@ function App() {
 
   const claimNFTs = () => {
     let cost = CONFIG.WEI_COST;
-    //let gasLimit = CONFIG.GAS_LIMIT;
+    let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * _mintAmount);
-    //let totalGasLimit = String(gasLimit * _mintAmount);
+    let totalGasLimit = String(gasLimit * _mintAmount);
     console.log("Cost: ", totalCostWei);
-    //console.log("Gas limit: ", totalGasLimit);
+    console.log("Gas limit: ", totalGasLimit);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     blockchain.smartContract.methods
@@ -188,7 +188,7 @@ function App() {
       .send({
         maxPriorityFeePerGas: null,
         maxFeePerGas: null,
-        //gasLimit: String(totalGasLimit),
+        gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
