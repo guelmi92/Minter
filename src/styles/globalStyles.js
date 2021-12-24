@@ -60,7 +60,7 @@ export const TextTitle = styled.p`
 export const TextSubTitle = styled.p`
   color: var(--primary-text);
   font-size: 20px;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  // text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   line-height: 1.6;
 `;
 
@@ -68,6 +68,18 @@ export const TextDescription = styled.p`
   color: var(--primary-text);
   font-size: 18px;
   line-height: 1.6;
+`;
+
+export const TextDescription1 = styled.p`
+  color: var(--test-color2);
+  font-size: 18px;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  line-height: 1.6;
+  animation: blinker 1s linear infinite;
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
 `;
 
 export const StyledClickable = styled.div`
